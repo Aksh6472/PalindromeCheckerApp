@@ -1,30 +1,22 @@
-public class PalindromeCheckerApp {
+public class UseCase10PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        String word = "madam";
-        char[] arr = word.toCharArray();
+        String input = "A man a plan a canal Panama";
 
-        int start = 0;
-        int end = arr.length - 1;
+        String normalized = input.replaceAll("\\s+", "").toLowerCase();
 
         boolean palindrome = true;
 
-        while(start < end){
+        for(int i = 0; i < normalized.length() / 2; i++){
 
-            if(arr[start] != arr[end]){
+            if(normalized.charAt(i) != normalized.charAt(normalized.length() - 1 - i)){
                 palindrome = false;
                 break;
             }
-
-            start++;
-            end--;
         }
 
-        if(palindrome)
-            System.out.println(word + " is a Palindrome");
-        else
-            System.out.println(word + " is not a Palindrome");
-
+        System.out.println("Input : " + input);
+        System.out.println("Is Palindrome? : " + palindrome);
     }
 }
